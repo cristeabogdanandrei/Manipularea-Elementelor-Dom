@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+   <title>DOM</title>
+</head>
+<body>
+
+    
+    <form class="form-container" onsubmit=" return validate()">
+        <p id="error"></p>
+     <h3>Login</h3>
+   <div class="form-grp">               
+    <label for="username">Username</label><br>
+    <input type="text" name="username" placeholder="Please enter USERNAME" id="user">
+    <i class="fa fa-times u_times"></i>
+    <i class="fa fa-check u_check"></i>
+   </div>
+
+   <div class="form-grp">               
+    <label for="password">Password</label><br>
+    <input type="text" name="password" placeholder="Please enter PASSWORD" id="pass">
+    <i class="fa fa-times p_times"></i>
+    <i class="fa fa-check p_check"></i>
+   </div>
+
+   <div class="form-grp">               
+    <input  onclick="login()" type="submit" name="login-btn" value="Login">
+   </div>
+
+
+    </form>
+    
+    <script>
+        var user =document.querySelector("#user")
+user.addEventListener('keyup' , function () {
+  var u_times = document.querySelector('.u_times');
+  var u_check = document.querySelector('.u_check');
+  if (user.value.lenght == 0 || user.value.lenght < 6) {
+      user.style.border = '1px solid red';
+      u_times.style.display ='block';
+      u_check.style.display ='none';
+      return false;
+
+  }else {
+     user.style.border= '1px solid green';
+     u_times.style.display ='block';
+     u_check.style.display ='none';
+  }
+})
+
+var pass =document.querySelector("#pass")
+pass.addEventListener('keyup' , function () {
+  var u_times = document.querySelector('.u_times');
+  var u_check = document.querySelector('.u_check');
+  if (user.value.lenght == 0 || user.value.lenght < 9) {
+      user.style.border = '1px solid red';
+      u_times.style.display ='block';
+      u_check.style.display ='none';
+      return false;
+
+  }else {
+     user.style.border= '1px solid green';
+     u_times.style.display ='block';
+     u_check.style.display ='none';
+  }
+})
+
+function validate() {
+  if (user.value == 0 || user.value.lenght < 6){
+   document.getElementById('error').innerHTML='Please enter a valid password or username';
+   return false;
+  } else if (pass.value == 0 || pass.value.lenght < 9) {
+
+
+    if (user.value == 0 || user.value.lenght < 6){
+        document.getElementById('error').innerHTML='Please enter a valid password or username';
+        return false;
+    }else 
+        alert('Successful login!')
+  }}
+
+function login(){
+    console.log("codul pentru logare...");
+}
+
+    </script>
+    </body>
+</html>
